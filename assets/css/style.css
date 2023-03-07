@@ -1,0 +1,32 @@
+/* background color - black - main container
+gradient background color 
+font with rounded and soft characters
+*/
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-size: 1.0rem;
+    min-height: 100vh;
+    background: var(--red-color);
+    background: -o-linear-gradient(281deg,#d3d6db 0%, #3a4750 0%, #be3144 100%);
+    background: linear-gradient(169deg,#d3d6db 50%, #be3144 100%);
+    line-height: 1.6;
+}
+
+.container {
+    background-color: black;
+    color: white;
+    font-family: sans;
+}
+
+/* button, input{
+    font-family: inherit;
+    font-size: 1.8rem;
+    outline: 0;
+    border: none;
+    background-color: transparent;
+} */
