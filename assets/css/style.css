@@ -15,12 +15,32 @@ body {
     background: -o-linear-gradient(281deg,#d3d6db 0%, #3a4750 0%, #be3144 100%);
     background: linear-gradient(169deg,#d3d6db 50%, #be3144 100%);
     line-height: 1.6;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: stretch;
+    -ms-flex-pack: stretch;
+    justify-content: stretch;
+}
+
+button, .search-btn{
+    font-family: inherit;
+    font-size: 1.8rem;
+    outline: 0;
+    border: none;
+    background-color: transparent;
 }
 
 .container {
     background-color: black;
     color: white;
     font-family: sans;
+    max-width: 1280px;
+    width: 100%;
+    margin: 0 auto;
 }
 
 /* button, input{
