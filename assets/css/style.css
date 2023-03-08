@@ -12,8 +12,8 @@ body {
     font-size: 1.0rem;
     min-height: 100vh;
     background: var(--red-color);
-    background: -o-linear-gradient(281deg,#d3d6db 0%, #3a4750 0%, #be3144 100%);
-    background: linear-gradient(169deg,#d3d6db 50%, #be3144 100%);
+    background: -o-linear-gradient(281deg, #303841 50%, #be3144 100%);
+    background: linear-gradient(169deg,#303841 50%, #be3144 100%);
     line-height: 1.6;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -26,17 +26,20 @@ body {
     justify-content: stretch;
 }
 
-button, .search-btn{
+button, .characters-header {
     font-family: inherit;
-    font-size: 1.8rem;
+    font-size: 1.2rem;
     outline: 0;
     border: none;
     background-color: transparent;
+    color: white;
 }
 
+
+
 .container {
-    background-color: black;
-    color: white;
+    background-color: #d3d6db;
+    color: black;
     font-family: sans;
     max-width: 1280px;
     width: 100%;
@@ -47,3 +50,21 @@ li {
     list-style-type: none;
 }
 
+h4, #char {
+    color: #be3144;
+}
+
+
+span {
+    color: black;
+}
+
+p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: medium;
+    color:#d3d6db;
+    font-weight: 300;
+    color: black;
+}
+
+/* btn-flat waves-effect waves-light */
