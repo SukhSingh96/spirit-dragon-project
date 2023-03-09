@@ -14,65 +14,75 @@ searchForm.style.display = "none";
 
 // Adds event listener to the characters link
 charactersLink.addEventListener("click", () => {
-    homeLink.style.display = "inline";
-    charactersLink.style.display = "none";
-    searchForm.style.display = "block";
+  homeLink.style.display = "inline";
+  charactersLink.style.display = "none";
+  searchForm.style.display = "block";
 });
 
 // Adds event listener to the compare link
 compareLink.addEventListener("click", () => {
-    alert("Sorry, comparison feature is not available yet. Stay tuned!");
+  alert("Sorry, comparison feature is not available yet. Stay tuned!");
 });
 
 // Adds event listener to the home link
 homeLink.addEventListener("click", () => {
-    location.replace(location.href);
-    homeLink.style.display = "none";
-    charactersLink.style.display = "inline";
+  location.replace(location.href);
+  homeLink.style.display = "none";
+  charactersLink.style.display = "inline";
 });
 
 function searchCharacter(searchText) {
-    const url = `https://www.superheroapi.com/api.php/2333600500149305/search/${searchText}`
-    fetch(url)
-      .then(response => response.json())
-      .then((jsonData) => {
-        const results = jsonData.results.map(element => {
-          return {
-            name: element.name,
-            image: element.image.url
-          }
-        });
-        renderResults(results);
-        console.log(results);
-      });
+  if (!searchText.trim()) { // check if searchText is empty or only whitespace
+    searchList.innerHTML = "";
+    homeText.style.display = "block"; // show the home text element
+    return;
   }
-  
-  function renderResults(results) {
-    searchList.innerHTML = ""; // clear previous results
-    results.forEach(result => {
-      const searchElement = document.createElement("li");
-      searchElement.innerText = result.name;
-      
-      const imageElement = document.createElement("img");
-      imageElement.src = result.image;
-      imageElement.style.width = "50px"; // set image width
-      
-      const listItemElement = document.createElement("div");
-      listItemElement.appendChild(imageElement);
-      listItemElement.appendChild(searchElement);
-      
-      listItemElement.addEventListener("click", () => {
-          // do something when list item is clicked
-          console.log(`You clicked on ${result.name}`);
+  const url = `https://www.superheroapi.com/api.php/2333600500149305/search/${searchText}`
+  fetch(url)
+    .then(response => response.json())
+    .then((jsonData) => {
+      const results = jsonData.results.map(element => {
+        return {
+          name: element.name,
+          image: element.image.url
+        }
       });
-      
-      searchList.appendChild(listItemElement);
+      renderResults(results);
+      console.log(results);
     });
+}
+
+function renderResults(results) {
+  if (results.length === 0) { // check if results is empty
+    searchList.innerHTML = "";
+    homeText.style.display = "block"; // show the home text element
+    return;
   }
+  homeText.style.display = "none"; // hide the home text element
+  searchList.innerHTML = ""; // clear previous results
+  results.slice(0, 3).forEach(result => {
+    const searchElement = document.createElement("span");
+    searchElement.innerText = result.name;
+
+    const imageElement = document.createElement("img");
+    imageElement.src = result.image;
+    imageElement.style.width = "80px"; // set image width
+
+    const buttonElement = document.createElement("button");
+    buttonElement.appendChild(imageElement);
+    buttonElement.appendChild(searchElement);
+
+    buttonElement.addEventListener("click", () => {
+      homeText.style.display = "none";
+    });
+
+    searchList.appendChild(buttonElement);
+  });
+}
 searchInput.addEventListener("keyup", () => {
-    searchCharacter(searchInput.value);
+  searchCharacter(searchInput.value);
 });
 
 window.onload = () => {
-    renderResults([]);
-};
+  renderResults([]);
+}; 
