@@ -32,7 +32,14 @@ button, .characters-header {
     outline: 0;
     border: none;
     background-color: transparent;
+}
+
+button:hover {
     color: white;
+}
+
+button:active {
+    color:#be3144;
 }
 
 
@@ -65,6 +72,21 @@ p {
     color:#d3d6db;
     font-weight: 300;
     color: black;
+}
+
+.mapbox {
+    margin: 0;
+    height: 100%;
+  display: flex;
+  align-items: center;
+  min-height: 100%;
+  /* fallback style for browsers that do not support the `vh` unit */
+  min-height: 100vh;
+}
+
+#map {
+    height: 50vh;
+    width: 50vh;
 }
 
 /* btn-flat waves-effect waves-light */
