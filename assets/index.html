@@ -1,182 +1,152 @@
-<html lang="en">
+<div class = "app-body-tabs-head">
+    <button type = "button" class = "tab-head-single" data-id = "1">
+        <span>powerstats</span>
+    </button>
+    <button type = "button" class = "tab-head-single" data-id = "2">
+        <span>biography</span>
+    </button>
+    <button type = "button" class = "tab-head-single" data-id = "3">
+        <span>appearance</span>
+    </button>
+    <button type = "button" class = "tab-head-single" data-id = "4">
+        <span>connections</span>
+    </button>
+</div>
+<!-- end of tabs head -->
 
-<head>
-    <!--  -->
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Chartest</title>
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <title>CharTest</title>
-</head>
-
-<body>
-    <div class="container">
-        <div class="container-2">
-            <div class="container-header">
-                <h4>Char<span>Test</span></h4>
-                <div>
-                    <button class="home-header btn-flat waves-effect waves-light">Home</button>
-                    <button class="characters-header btn-flat waves-effect waves-light">Characters</button>
-                    <button class="compare-header btn-flat waves-effect waves-light">Compare</button>
-                </div>
-                <form class="container-header-search">
-                    <input type="text" class="form" placeholder="Hero Selector" name="search"> <i
-                        class="fas fa-search"></i>
-                    <div class="search-list" id="search-list">
-                    </div>
-                </form>
+<!-- tabs body -->
+<div class = "app-body-tabs-body">
+    <!-- powerstats tab -->
+    <ul class = "tab-body-single powerstats">
+        <li>
+            <div>
+                <i class = "fa-solid fa-shield-halved"></i>
+                <span>intelligence</span>
             </div>
-            <div class="data-container">
-                <div class="HeroInfo">
-                    <div class = "app-body-tabs-head">
-                        <button type = "button" class = "tab-head-single" data-id = "1">
-                            <span>powerstats</span>
-                        </button>
-                        <button type = "button" class = "tab-head-single" data-id = "2">
-                            <span>biography</span>
-                        </button>
-                        <button type = "button" class = "tab-head-single" data-id = "3">
-                            <span>appearance</span>
-                        </button>
-                        <button type = "button" class = "tab-head-single" data-id = "4">
-                            <span>connections</span>
-                        </button>
-                    </div>
-                    <!-- end of tabs head -->
-    
-                    <!-- tabs body -->
-                    <div class = "app-body-tabs-body">
-                        <!-- powerstats tab -->
-                        <ul class = "tab-body-single powerstats">
-                            <li>
-                                <div>
-                                    <i class = "fa-solid fa-shield-halved"></i>
-                                    <span>intelligence</span>
-                                </div>
-                                <span>100</span>
-                            </li>
-                            <li>
-                                <div>
-                                    <i class = "fa-solid fa-shield-halved"></i>
-                                    <span>strength</span>
-                                </div>
-                                <span>26</span>
-                            </li>
-                            <li>
-                                <div>
-                                    <i class = "fa-solid fa-shield-halved"></i>
-                                    <span>speed</span>
-                                </div>
-                                <span>27</span>
-                            </li>
-                            <li>
-                                <div>
-                                    <i class = "fa-solid fa-shield-halved"></i>
-                                    <span>durability</span>
-                                </div>
-                                <span>50</span>
-                            </li>
-                            <li>
-                                <div>
-                                    <i class = "fa-solid fa-shield-halved"></i>
-                                    <span>power</span>
-                                </div>
-                                <span>47</span>
-                            </li>
-                            <li>
-                                <div>
-                                    <i class = "fa-solid fa-shield-halved"></i>
-                                    <span>combat</span>
-                                </div>
-                                <span>100</span>
-                            </li>
-                        </ul>
-                        <!-- end of powerstats tab -->
-    
-                        <!-- biography tab -->
-                        <ul class = "tab-body-single biography">
-                            <li>
-                                <span>full name</span>
-                                <span></span>
-                            </li>
-                            <li>
-                                <span>alert-egos</span>
-                                <span>no alter egos found.</span>
-                            </li>
-                            <li>
-                                <span>aliases</span>
-                                <span></span>
-                            </li>
-                            <li>
-                                <span>place-of-birth</span>
-                                <span></span>
-                            </li>
-                            <li>
-                                <span>first-apperance</span>
-                                <span></span>
-                            </li>
-                            <li>
-                                <span>publisher</span>
-                                <span>DC Comics</span>
-                            </li>
-                        </ul>
-                        <!-- end of biography tab -->
-    
-                        <!-- appearance -->
-                        <ul class = "tab-body-single appearance">
-                            <li>
-                                <span>
-                                    <i class = "fas fa-star"></i> gender
-                                </span>
-                                <span>Male</span>
-                            </li>
-                            <li>
-                                <span>
-                                    <i class = "fas fa-star"></i> race
-                                </span>
-                                <span>human</span>
-                            </li>
-                            <li>
-                                <span>
-                                    <i class = "fas fa-star"></i> height
-                                </span>
-                                <span>5' 10''</span>
-                            </li>
-                            <li>
-                                <span>
-                                    <i class = "fas fa-star"></i> weight
-                                </span>
-                                <span>170 lb</span>
-                            </li>
-                            <li>
-                                <span>
-                                    <i class = "fas fa-star"></i> eye-color
-                                </span>
-                                <span>blue</span>
-                            </li>
-                            <li>
-                                <span>
-                                    <i class = "fas fa-star"></i> hair-color
-                                </span>
-                                <span>black</span>
-                            </li>
-                        </ul>
-                </div>
-                <div class="home-text">
-                    <h3 class="about" id="about">About CharTest</h3>
-                    <p>This is where we will expain the informaiton about what this app does and how it will help the
-                        common
-                        superhero fan</p>
-                </div>
+            <span>100</span>
+        </li>
+        <li>
+            <div>
+                <i class = "fa-solid fa-shield-halved"></i>
+                <span>strength</span>
             </div>
-        </div>
-    </div>
-    <script src="script.js"></script>
-</body>
+            <span>26</span>
+        </li>
+        <li>
+            <div>
+                <i class = "fa-solid fa-shield-halved"></i>
+                <span>speed</span>
+            </div>
+            <span>27</span>
+        </li>
+        <li>
+            <div>
+                <i class = "fa-solid fa-shield-halved"></i>
+                <span>durability</span>
+            </div>
+            <span>50</span>
+        </li>
+        <li>
+            <div>
+                <i class = "fa-solid fa-shield-halved"></i>
+                <span>power</span>
+            </div>
+            <span>47</span>
+        </li>
+        <li>
+            <div>
+                <i class = "fa-solid fa-shield-halved"></i>
+                <span>combat</span>
+            </div>
+            <span>100</span>
+        </li>
+    </ul>
+    <!-- end of powerstats tab -->
 
-</html>
+    <!-- biography tab -->
+    <ul class = "tab-body-single biography">
+        <li>
+            <span>full name</span>
+            <span>terry mcginnis</span>
+        </li>
+        <li>
+            <span>alert-egos</span>
+            <span>no alter egos found.</span>
+        </li>
+        <li>
+            <span>aliases</span>
+            <span>Batman II, The Tomorrow Knight, Batman Beyond</span>
+        </li>
+        <li>
+            <span>place-of-birth</span>
+            <span>Gothan City, 25th Century</span>
+        </li>
+        <li>
+            <span>first-apperance</span>
+            <span>Batman Beyond #1</span>
+        </li>
+        <li>
+            <span>publisher</span>
+            <span>DC Comics</span>
+        </li>
+    </ul>
+    <!-- end of biography tab -->
+
+    <!-- appearance -->
+    <ul class = "tab-body-single appearance">
+        <li>
+            <span>
+                <i class = "fas fa-star"></i> gender
+            </span>
+            <span>Male</span>
+        </li>
+        <li>
+            <span>
+                <i class = "fas fa-star"></i> race
+            </span>
+            <span>human</span>
+        </li>
+        <li>
+            <span>
+                <i class = "fas fa-star"></i> height
+            </span>
+            <span>5' 10''</span>
+        </li>
+        <li>
+            <span>
+                <i class = "fas fa-star"></i> weight
+            </span>
+            <span>170 lb</span>
+        </li>
+        <li>
+            <span>
+                <i class = "fas fa-star"></i> eye-color
+            </span>
+            <span>blue</span>
+        </li>
+        <li>
+            <span>
+                <i class = "fas fa-star"></i> hair-color
+            </span>
+            <span>black</span>
+        </li>
+    </ul>
+    <!-- end of appearance -->
+
+    <!-- connections -->
+    <ul class = "tab-body-single connections">
+        <li>
+            <span>group--affiliation</span>
+            <span>Batman Family, Justice League Unlimited</span>
+        </li>
+        <li>
+            <span>relatives</span>
+            <span>Bruce Wayne (biological father), Warren McGinnis (father, deceased), Mary McGinnis (mother), Matt McGinnis (brother)</span>
+        </li>
+    </ul>
+    <!-- end of connections -->
+</div>
+<!-- end of tabs body -->
+</div>
+</div>
+</div>

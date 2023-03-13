@@ -1,98 +1,3 @@
-var homeLink = document.querySelector(".home-header");
-var charactersLink = document.querySelector(".characters-header");
-var compareLink = document.querySelector(".compare-header");
-var searchForm = document.querySelector(".container-header-search");
-var searchInput = document.querySelector(".container-header-search input");
-var searchList = document.getElementById("search-list");
-
-const allTabsBody = document.querySelectorAll('.tab-body-single');
-const allTabsHead = document.querySelectorAll('.tab-head-single');
-// Gets the home text element
-var homeText = document.querySelector(".home-text");
-
-// Hides certain elements by default
-homeLink.style.display = "none";
-searchForm.style.display = "none";
-
-// Adds event listener to the characters link
-charactersLink.addEventListener("click", () => {
-  homeLink.style.display = "inline";
-  charactersLink.style.display = "none";
-  searchForm.style.display = "block";
-});
-
-// Adds event listener to the compare link
-compareLink.addEventListener("click", () => {
-  alert("Sorry, comparison feature is not available yet. Stay tuned!");
-});
-
-// Adds event listener to the home link
-homeLink.addEventListener("click", () => {
-  location.replace(location.href);
-  homeLink.style.display = "none";
-  charactersLink.style.display = "inline";
-});
-
-function searchCharacter(searchText) {
-  if (!searchText.trim()) { // check if searchText is empty or only whitespace
-    searchList.innerHTML = "";
-    homeText.style.display = "block"; // show the home text element
-    return;
-  }
-  const url = `https://www.superheroapi.com/api.php/2333600500149305/search/${searchText}`
-  fetch(url)
-    .then(response => response.json())
-    .then((jsonData) => {
-      const results = jsonData.results.map(element => {
-        return {
-          name: element.name,
-          image: element.image.url
-        }
-      });
-      renderResults(results);
-      console.log(results);
-    });
-}
-function renderResults(results) {
-  if (results.length === 0) { // check if results is empty
-    searchList.innerHTML = "";
-    homeText.style.display = "block"; // show the home text element
-    return;
-  }
-  homeText.style.display = "none"; // hide the home text element
-  searchList.innerHTML = ""; // clear previous results
-  results.slice(0, 3).forEach(result => {
-    const searchElement = document.createElement("span");
-    searchElement.innerText = result.name;
-
-    const imageElement = document.createElement("img");
-    imageElement.src = result.image;
-    imageElement.style.width = "80px"; // set image width
-
-    const buttonElement = document.createElement("button");
-    buttonElement.appendChild(imageElement);
-    buttonElement.appendChild(searchElement);
-
-    buttonElement.addEventListener("click", () => {
-      homeText.style.display = "none";
-    });
-
-    searchList.appendChild(buttonElement);
-  });
-}
-searchInput.addEventListener("keyup", () => {
-  searchCharacter(searchInput.value);
-});
-
-window.onload = () => {
-  renderResults([]);
-
-  // search form submission
-searchForm.addEventListener('submit', getInputValue);
-}; 
-
-
-//end of westjs
 let activeTab = 1, allData;
 
 const init = () => {
@@ -121,6 +26,37 @@ allTabsHead.forEach(singleTabHead => {
         showActiveTabBody();
     });
 });
+
+const getInputValue = (event) => {
+    event.preventDefault();
+    let searchText = searchForm.search.value;
+    fetchAllSuperHero(searchText);
+}
+
+// search form submission
+searchForm.addEventListener('submit', getInputValue);
+
+const showSearchList = (data) => {
+    searchList.innerHTML = "";
+    data.forEach(dataItem => {
+        const divElem = document.createElement('div');
+        divElem.classList.add('search-list-item');
+        divElem.innerHTML = `
+            <img src = "${dataItem.image.url ? dataItem.image.url : ""}" alt = "">
+            <p data-id = "${dataItem.id}">${dataItem.name}</p>
+        `;
+        searchList.appendChild(divElem);
+    });
+}
+
+searchForm.search.addEventListener('keyup', () => {
+    if(searchForm.search.value.length > 1){
+        fetchAllSuperHero(searchForm.search.value);
+    } else {
+        searchList.innerHTML = "";
+    }
+});
+
 searchList.addEventListener('click', (event) => {
     let searchId = event.target.dataset.id;
     let singleData = allData.results.filter(singleData => {
@@ -129,11 +65,12 @@ searchList.addEventListener('click', (event) => {
     showSuperheroDetails(singleData);
     searchList.innerHTML = "";
 });
+
 const showSuperheroDetails = (data) => {
     console.log(data);
-    document.querySelector('.app-body-content-thumbnail').innerHTML = 
-        <img src = "${data[0].image.url}"></img>
-    ;
+    document.querySelector('.app-body-content-thumbnail').innerHTML = `
+        <img src = "${data[0].image.url}">
+    `;
 
     document.querySelector('.name').textContent = data[0].name;
     document.querySelector('.powerstats').innerHTML = `
@@ -206,9 +143,9 @@ const showSuperheroDetails = (data) => {
         <span>publisher</span>
         <span>${data[0].biography['publisher']}</span>
     </li>
-    ;
+    `;
 
-    document.querySelector('.appearance').innerHTML = 
+    document.querySelector('.appearance').innerHTML = `
     <li>
         <span>
             <i class = "fas fa-star"></i> gender
@@ -256,5 +193,5 @@ const showSuperheroDetails = (data) => {
         <span>relatives</span>
         <span>${data[0].connections['relatives']}</span>
     </li>
-    ;
+    `;
 }
