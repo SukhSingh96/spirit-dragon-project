@@ -1,24 +1,20 @@
 <html lang="en">
 
 <head>
-    <!--  -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="assets/css/style.css"> -->
-    <title>Chartest</title>
     <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/
-    materialize.min.css">
-
-    <link rel="stylesheet" href="assets/css/style.css">
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
-    <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
-
-    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.js"></script>
-<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+     <!-- Compiled and minified JavaScript -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+     
+     <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
+     <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
+     
+     <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.js"></script>
+     <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.css" type="text/css">
+     <link rel="stylesheet" href="assets/css/style.css"/>
     <title>CharTest</title>
 </head>
 
@@ -33,56 +29,83 @@
                     <button class="compare-header btn-flat waves-effect waves-light">Compare</button>
                 </div>
                 <form class="container-header-search">
-                    <input type="text" class="form" placeholder="Hero Selector" name="search"> <i
+                    <input type="text" style="background-color: light" class="form" placeholder="Hero Selector" name="search"> <i
                         class="fas fa-search"></i>
                     <div class="search-list" id="search-list">
                     </div>
                 </form>
             </div>
             <div class="data-container">
-                <div class="HeroInfo">
+                <div id="hero-info" class="HeroInfo hide">
                     <ul class = "tab-body-single powerstats">
                         <li>
-                            <div>
-                                <i class = "fa-solid fa-shield-halved"></i>
-                                <span>intelligence</span>
-                            </div>
-                            <span>100</span>
-                        </li>
-                        <li>
-                            <div>
-                                <i class = "fa-solid fa-shield-halved"></i>
-                                <span>strength</span>
-                            </div>
-                            <span>26</span>
-                        </li>
-                        <li>
-                            <div>
-                                <i class = "fa-solid fa-shield-halved"></i>
-                                <span>speed</span>
-                            </div>
-                            <span>27</span>
-                        </li>
-                        <li>
-                            <div>
-                                <i class = "fa-solid fa-shield-halved"></i>
-                                <span>durability</span>
-                            </div>
-                            <span>50</span>
-                        </li>
-                        <li>
-                            <div>
-                                <i class = "fa-solid fa-shield-halved"></i>
-                                <span>power</span>
-                            </div>
-                            <span>47</span>
-                        </li>
-                        <li>
-                            <div>
-                                <i class = "fa-solid fa-shield-halved"></i>
-                                <span>combat</span>
-                            </div>
-                            <span>100</span>
+                            <ul class = "tab-body-single biography">
+                                <li>
+                                    <span>full name</span>
+                                    <span>terry mcginnis</span>
+                                </li>
+                                <li>
+                                    <span>alert-egos</span>
+                                    <span>no alter egos found.</span>
+                                </li>
+                                <li>
+                                    <span>aliases</span>
+                                    <span>Batman II, The Tomorrow Knight, Batman Beyond</span>
+                                </li>
+                                <li>
+                                    <span>place-of-birth</span>
+                                    <span>Gothan City, 25th Century</span>
+                                </li>
+                                <li>
+                                    <span>first-apperance</span>
+                                    <span>Batman Beyond #1</span>
+                                </li>
+                                <li>
+                                    <span>publisher</span>
+                                    <span>DC Comics</span>
+                                </li>
+                            </ul>
+                            <!-- end of biography tab -->
+​
+                            <!-- appearance -->
+                            <ul class = "tab-body-single appearance">
+                                <li>
+                                    <span>
+                                        <i class = "fas fa-star"></i> gender
+                                    </span>
+                                    <span>Male</span>
+                                </li>
+                                <li>
+                                    <span>
+                                        <i class = "fas fa-star"></i> race
+                                    </span>
+                                    <span>human</span>
+                                </li>
+                                <li>
+                                    <span>
+                                        <i class = "fas fa-star"></i> height
+                                    </span>
+                                    <span>5' 10''</span>
+                                </li>
+                                <li>
+                                    <span>
+                                        <i class = "fas fa-star"></i> weight
+                                    </span>
+                                    <span>170 lb</span>
+                                </li>
+                                <li>
+                                    <span>
+                                        <i class = "fas fa-star"></i> eye-color
+                                    </span>
+                                    <span>blue</span>
+                                </li>
+                                <li>
+                                    <span>
+                                        <i class = "fas fa-star"></i> hair-color
+                                    </span>
+                                    <span>black</span>
+                                </li>
+                            </ul>
                         </li>
                     </ul>
                 </div>

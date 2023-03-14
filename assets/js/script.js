@@ -4,9 +4,10 @@ var compareLink = document.querySelector(".compare-header");
 var searchForm = document.querySelector(".container-header-search");
 var searchInput = document.querySelector(".container-header-search input");
 var searchList = document.getElementById("search-list");
+var heroInfo = document.getElementById("hero-info");
 
 // Gets the home text element
-var homeText = document.querySelector(".home-text"); 
+var homeText = document.querySelector(".home-text");
 
 // Hides certain elements by default
 homeLink.style.display = "none";
@@ -52,68 +53,171 @@ function searchCharacter(searchText) {
     });
 }
 
-function renderResults(results) {
-  if (results.length === 0) { // check if results is empty
-    searchList.innerHTML = "";
-    homeText.style.display = "block"; // show the home text element
-    return;
-  }
-  homeText.style.display = "none"; // hide the home text element
-  searchList.innerHTML = ""; // clear previous results
-  results.slice(0, 3).forEach(result => {
-    const searchElement = document.createElement("span");
-    searchElement.innerText = result.name;
+function getCharacterInfo(name) {
+  console.log("getting char")
+  console.log(name)
+  const url = `https://www.superheroapi.com/api.php/2333600500149305/search/${name}`
+  fetch(url)
+    .then(response => response.json())
+    .then((jsonData) => {
+      heroInfo.classList.remove("hide");
+      var character = jsonData.results[0];
 
-    const imageElement = document.createElement("img");
-    imageElement.src = result.image;
-    imageElement.style.width = "80px"; // set image width
+      //populate our "hero-info" div with the data we get from our character object
+      document.querySelector('.biography').innerHTML = `
+  <li>
+      <span>full name</span>
+      <span>${data[0].biography['full-name']}</span>
+  </li>
+  <li>
+      <span>alert-egos</span>
+      <span>${data[0].biography['alter-egos']}</span>
+  </li>
+  <li>
+      <span>aliases</span>
+      <span>${data[0].biography['aliases']}</span>
+  </li>
+  <li>
+      <span>place-of-birth</span>
+      <span>${data[0].biography['place-of-birth']}</span>
+  </li>
+  <li>
+      <span>first-apperance</span>
+      <span>${data[0].biography['first-appearance']}</span>
+  </li>
+  <li>
+      <span>publisher</span>
+      <span>${data[0].biography['publisher']}</span>
+  </li>
+  `;
 
-    const buttonElement = document.createElement("button");
-    buttonElement.appendChild(imageElement);
-    buttonElement.appendChild(searchElement);
+      document.querySelector('.appearance').innerHTML = `
+  <li>
+      <span>
+          <i class = "fas fa-star"></i> gender
+      </span>
+      <span>${data[0].appearance['gender']}</span>
+  </li>
+  <li>
+      <span>
+          <i class = "fas fa-star"></i> race
+      </span>
+      <span>${data[0].appearance['race']}</span>
+  </li>
+  <li>
+      <span>
+          <i class = "fas fa-star"></i> height
+      </span>
+      <span>${data[0].appearance['height'][0]}</span>
+  </li>
+  <li>
+      <span>
+          <i class = "fas fa-star"></i> weight
+      </span>
+      <span>${data[0].appearance['weight'][0]}</span>
+  </li>
+  <li>
+      <span>
+          <i class = "fas fa-star"></i> eye-color
+      </span>
+      <span>${data[0].appearance['eye-color']}</span>
+  </li>
+  <li>
+      <span>
+          <i class = "fas fa-star"></i> hair-color
+      </span>
+      <span>${data[0].appearance['hair-color']}</span>
+  </li>
+  `;
+    
+      document.querySelector('.connections').innerHTML = `
+  <li>
+      <span>group--affiliation</span>
+      <span>${data[0].connections['group-affiliation']}</span>
+  </li>
+  <li>
+      <span>relatives</span>
+      <span>${data[0].connections['relatives']}</span>
+  </li>
+  `;
+      renderCharacterInfo(character);
 
-    buttonElement.addEventListener("click", () => {
-      homeText.style.display = "none";
-    });
 
-    searchList.appendChild(buttonElement);
-  });
-}
-searchInput.addEventListener("keyup", () => {
-  searchCharacter(searchInput.value);
 });
 
-window.onload = () => {
-  renderResults([]);
-}; 
+function renderCharacterInfo(characterData) {
+  console.log(characterData);
+  //make function do stuff
+}
 
-mapboxgl.accessToken = 'pk.eyJ1IjoiZ29kZGFyZGNvbGUiLCJhIjoiY2xmNXB3MWg4MDVlZjNwcW1ncXF5b3dncCJ9.0Ft4_LAHrAwshgLHvm4r0Q';
 
-navigator.geolocation.getCurrentPosition(successLocation, errorLocation, {
+  function renderResults(results) {
+    if (results.length === 0) { // check if results is empty
+      searchList.innerHTML = "";
+      homeText.style.display = "block"; // show the home text element
+      return;
+    }
+    homeText.display = "none"; // hide the home text element
+    searchList.innerHTML = ""; // clear previous results
+    results.slice(0, 3).forEach(result => {
+      const searchElement = document.createElement("span");
+      searchElement.innerText = result.name;
+
+      const imageElement = document.createElement("img");
+      imageElement.src = result.image;
+      imageElement.style.width = "80px"; // set image width
+
+      const buttonElement = document.createElement("button");
+      buttonElement.appendChild(imageElement);
+      buttonElement.appendChild(searchElement);
+
+      buttonElement.addEventListener("click", event => {
+        event.preventDefault();
+        console.log("click!")
+        homeText.style.display = "none";
+        //do a fetch to the hero API with the span text from the button
+        getCharacterInfo(result.name);
+      });
+
+      searchList.appendChild(buttonElement);
+    });
+  }
+  searchInput.addEventListener("keyup", () => {
+    searchCharacter(searchInput.value);
+  });
+
+  window.onload = () => {
+    renderResults([]);
+  };
+
+  mapboxgl.accessToken = 'pk.eyJ1IjoiZ29kZGFyZGNvbGUiLCJhIjoiY2xmNXB3MWg4MDVlZjNwcW1ncXF5b3dncCJ9.0Ft4_LAHrAwshgLHvm4r0Q';
+
+  navigator.geolocation.getCurrentPosition(successLocation, errorLocation, {
     enableHighAccuracy: true
-})
+  })
 
-function successLocation(position) {
+  function successLocation(position) {
     console.log(position)
     setupMap([position.coords.longitude, position.coords.latitude])
-}
+  }
 
-function errorLocation() {
+  function errorLocation() {
     setupMap([-2.24, 53.48])
-}
+  }
 
-function setupMap(center) {
-const map = new mapboxgl.Map({
-            container: 'map',
-            style: 'mapbox://styles/mapbox/streets-v11'
-        })
+  function setupMap(center) {
+    const map = new mapboxgl.Map({
+      container: 'map',
+      style: 'mapbox://styles/mapbox/streets-v11'
+    })
 
-        const nav = new mapboxgl.NavigationControl()
-        map.addControl(nav)
+    const nav = new mapboxgl.NavigationControl()
+    map.addControl(nav)
 
-        var directions = new MapboxDirections({
-            accessToken: mapboxgl.accessToken
-          });
-          
-          map.addControl(directions, 'top-left');
-    }
+    var directions = new MapboxDirections({
+      accessToken: mapboxgl.accessToken
+    });
+
+    map.addControl(directions, 'top-left');
+  }
+  }
