@@ -1,0 +1,60 @@
+<html lang="en">
+
+<head>
+    <!--  -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="assets/css/style.css"> -->
+    <title>Chartest</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/
+    materialize.min.css">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
+
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.js"></script>
+<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.css" type="text/css">
+    <title>CharTest</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="container-2">
+            <div class="container-header">
+                <h4>Char<span>Test</span></h4>
+                <div>
+                    <button class="home-header btn-flat waves-effect waves-light">Home</button>
+                    <button class="characters-header btn-flat waves-effect waves-light">Characters</button>
+                    <button class="compare-header btn-flat waves-effect waves-light">Compare</button>
+                </div>
+                <form class="container-header-search">
+                    <input type="text" class="form" placeholder="Hero Selector" name="search"> <i
+                        class="fas fa-search"></i>
+                    <div class="search-list" id="search-list">
+                    </div>
+                </form>
+            </div>
+            <div class="data-container">
+                <div class="home-text">
+                    <h3 class="about" id="about">About <span id="char">Char</span><span>Test</span></h3>
+                    <p>CharTest is a superhero character comparison website. A user can compare their favorite heroes
+                        and villians as well as pit them against each other to see how they rank across multiple
+                        different IPs like Marvel, DC and even Harry Potter! A user can search individually or compare
+                        two heroes or villians against each other.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mapbox">
+    <div id='map'></div>
+    </div>
+
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>
