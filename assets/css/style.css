@@ -35,6 +35,10 @@ body{
         -ms-flex-pack: stretch;
             justify-content: stretch;
 }
+.nav-links {
+    justify-content: space-between;
+    word-spacing: 20px;
+}
 button, input{
     font-family: inherit;
     font-size: 1.8rem;
@@ -62,7 +66,7 @@ img{
     margin: 2rem;
     padding: 5rem;
     border-radius: 6px;
-    color: #be3144;
+    color: white;
     -webkit-box-shadow: 0px 5px 11px 0px rgba(0, 0, 0, 0.5);
             box-shadow: 0px 5px 11px 0px rgba(0, 0, 0, 0.5);
 }
@@ -77,22 +81,27 @@ img{
         -ms-flex-pack: justify;
             justify-content: space-between;
 }
+.app-header-title {
+    color: var(--red-color);
+}
 .app-header-title span{
-    color: #d3d6db;
+    color: var(--light-color);
 }
 .app-header-search{
+    margin-top: 120px;
+    margin-left: 350px;
     border: 2px solid var(--grey-color);
-    border-radius: 3rem;
-    padding: 1rem 2rem;
-    position: relative;
+    border-radius: 6rem;
+    padding: 1rem 5rem;
+    position: absolute;
 }
 .app-header-search .form-control{
-    min-width: 420px;
+    min-width: 400px;
     color: #fff;
 }
 .app-header-search .search-btn{
     color: var(--grey-color);
-    font-size: 2.3rem;
+    font-size: 1rem;
     cursor: pointer;
 }
 
@@ -100,15 +109,15 @@ img{
 .search-list{
     z-index: 10;
     position: absolute;
-    top: calc(100% + 1rem);
+    top: calc(100% + 2rem);
     left: 0;
-    background-color: var(--light-color);
+    background-color: var(--dark-color);
     width: 100%;
     max-height: 400px;
     overflow-y: scroll;
 }
 .search-list::-webkit-scrollbar{
-    width: 7px;
+    width: 6px;
 }
 .search-list::-webkit-scrollbar-track{
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
@@ -129,31 +138,48 @@ img{
     padding: 0.4rem 0;
 }
 .search-list-item img{
-    width: 50px;
-    margin-right: 2rem;
+    width: 60px;
+    margin-right: 3rem;
 }
 .search-list-item p{
     font-weight: 700;
     cursor: pointer;
 }
 
+.search-list-item:hover {
+    background-color: var(--red-color);
+    }
+
 /* app body */
 .app-body{
-    margin-top: 4rem;
+    margin-top: 7rem;
     height: 600px;
     overflow-y: scroll;
 }
 .app-body::-webkit-scrollbar{
+    margin-top: 50px;
     width: 7px;
 }
 .app-body::-webkit-scrollbar-track{
-    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-            box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
+            box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
 }
 .app-body::-webkit-scrollbar-thumb{
     background-color: var(--red-color);
-    border-radius: 5px;
+    border-radius: 50px;
 }
+
+.home-text {
+    margin-top: 150px;
+}
+
+.name {
+    font-weight: 800;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
 
 /* app body tabs heads */
 .app-body-tabs-head{
@@ -190,9 +216,9 @@ img{
     content: "";
     position: absolute;
     left: 0;
-    bottom: -1.7rem;
+    bottom: -1.8rem;
     width: 100%;
-    height: 4px;
+    height: 2px;
     background-color: var(--red-color);
 }
 
@@ -200,12 +226,13 @@ img{
 .app-body-content{
     display: grid;
     grid-template-columns: 2fr 3fr;
-    -webkit-column-gap: 4rem;
+    -webkit-column-gap: 30rem;
        -moz-column-gap: 4rem;
             column-gap: 4rem;
+    margin-top: 70px;
     margin-right: 2rem;
 }
-.app-body-content-thumbnail{
+.app-body-content-img{
     width: 100%;
     border-radius: 6px;
     overflow: hidden;
@@ -214,7 +241,7 @@ img{
     text-transform: uppercase;
     letter-spacing: 2px;
     font-size: 3.4rem;
-    font-weight: 500;
+    font-weight: 800px;
     margin-top: -1.2rem;
 }
 .app-body-tabs-body{
@@ -239,46 +266,13 @@ button:active {
   }
 
   #char {
-    color: #be3144;
+    color: var(--red-color);
   }
 
   #test {
     color: #d3d6db;
   }
 
-/* powerstats */
-.powerstats{
-    display: none;
-}
-.powerstats li{
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    margin: 1.2rem auto;
-    padding: 1.2rem;
-    -webkit-box-shadow: 0 5px 7px 0 rgba(0, 0, 0, 0.5);
-            box-shadow: 0 5px 7px 0 rgba(0, 0, 0, 0.5);
-}
-.powerstats li div i{
-    color: var(--red-color);
-}
-.powerstats li div span{
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    border-radius: 7px;
-    padding: 0 1.2rem;
-    margin: 0 1.6rem;
-    opacity: 0.6;
-    font-size: 1.7rem;
-}
-.powerstats li > span{
-    color: var(--yellow-color);
-    font-weight: 700;
-}
-/* biography */
 .biography{
     display: none;
 }
@@ -292,19 +286,18 @@ button:active {
 }
 .biography li span:first-child{
     font-weight: 600;
-    color: var(--grey-color);
+    color: rgb(253, 146, 146);
     margin-right: 1rem;
 }
 .biography li span:last-child{
     font-weight: 300;
 }
 
-/* appearance */
 .appearance{
     display: none;
 }
 .appearance li{
-    margin: 3.2rem 0;
+    margin: 4rem 0;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -327,24 +320,23 @@ button:active {
     margin-right: 4rem;
 }
 .appearance li span:last-child{
+    color: black;
     font-weight: 600;
     text-transform: capitalize;
-    background-color: var(--red-color);
-    border-radius: 2rem;
-    padding: 0 1rem;
+    background-color: rgb(253, 146, 146);
+    border-radius: .7rem;
+    padding: 0 3rem;
     text-align: right;
 }
-
-/* connections */
 .connections{
     display: none;
 }
 .connections li span:first-child{
     display: block;
     text-transform: uppercase;
-    font-weight: 600;
-    color: var(--grey-color);
-    margin: 1.6rem 0 1.6rem 4rem;
+    font-weight: 400;
+    color: var(--light-color);
+    margin: 1rem 0 1.6rem 4rem;
     position: relative;
     font-weight: 700;
     font-size: 2rem;
@@ -361,11 +353,31 @@ button:active {
     left: -40px;
     height: 3px;
     width: 30px;
-    background-color: var(--yellow-color);
+    background-color: rgb(253, 146, 146);
 }
 .connections li span:last-child{
     letter-spacing: 1px;
     line-height: 1.9;
+}
+
+.work{
+    display: none;
+}
+.work li{
+    margin: 3.4rem 0;
+}
+.work li span{
+    text-transform: capitalize;
+    font-weight: 600;
+    font-size: 1.9rem;
+}
+.work li span:first-child{
+    font-weight: 600;
+    color: rgb(253, 146, 146);
+    margin-right: 1rem;
+}
+.work li span:last-child{
+    font-weight: 300;
 }
 
 @media screen and (max-width: 1200px){
