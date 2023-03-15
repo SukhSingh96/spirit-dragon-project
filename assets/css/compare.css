@@ -20,7 +20,7 @@ html{
 body{
     font-size: 1.7rem;
     min-height: 100vh;
-    background: var(--red-color);
+    background: var(--light-color);
     background: -o-linear-gradient(281deg, #d3d6db 0%, #be3144 100%);
     background: linear-gradient(169deg, #d3d6db 0%, #be3144 100%);
     line-height: 1.6;
@@ -40,6 +40,7 @@ body{
     max-width: 1280px;
     width: 100%;
     margin: 0 auto;
+    margin-left: 400px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -53,10 +54,11 @@ body{
 
 .app{
     background-color: var(--dark-color);
+    font-weight: 800;
     margin: 2rem;
     padding: 5rem;
     border-radius: 6px;
-    color: #be3144;
+    color: var(--light-color);
     -webkit-box-shadow: 0px 5px 11px 0px rgba(0, 0, 0, 0.5);
             box-shadow: 0px 5px 11px 0px rgba(0, 0, 0, 0.5);
             
