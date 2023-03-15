@@ -42,6 +42,9 @@ button, input{
     border: none;
     background-color: transparent;
 }
+button, compare-header{
+    color: white;
+}
 li{
     list-style-type: none;
 }
