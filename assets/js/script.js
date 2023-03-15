@@ -43,7 +43,7 @@ searchForm.addEventListener('submit', getInputValue);
 
 // api key => 727054372039115
 const fetchAllSuperHero = async(searchText) => {
-    let url = `https://www.superheroapi.com/api.php/1216454192525968/search/${searchText}`;
+    let url = `https://www.superheroapi.com/api.php/2333600500149305/search/${searchText}`;
     try{
         const response = await fetch(url);
         allData = await response.json();
