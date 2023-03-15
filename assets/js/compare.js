@@ -35,6 +35,7 @@ function renderHeroesList(heroes, listContainer) {
             const heroImg = document.createElement("img");
             heroImg.src = hero.image.url;
             heroImg.alt = hero.name;
+            heroImg.style.width = "175px";
             heroImg.classList.add("hero-img");
             const heroStats = document.createElement("div");
             heroStats.classList.add("hero-stats");

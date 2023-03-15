@@ -1,0 +1,86 @@
+:root{
+    --poppins-font: 'Poppins', sans-serif;
+    --dark-color: #0a0a0a;
+    --red-color: #f64445;
+    --light-color: #fff;
+    --grey-color: #505050;
+    --yellow-color: #f2c10e;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+html{
+    font-size: 10px;
+}
+body{
+    font-size: 1.7rem;
+    min-height: 100vh;
+    background: var(--red-color);
+    background: -o-linear-gradient(281deg, #d3d6db 0%, #be3144 100%);
+    background: linear-gradient(169deg, #d3d6db 0%, #be3144 100%);
+    line-height: 1.6;
+    font-family: var(--poppins-font);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: stretch;
+        -ms-flex-pack: stretch;
+            justify-content: stretch;
+}
+
+.main-container{
+    max-width: 1280px;
+    width: 100%;
+    margin: 0 auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+}
+
+.app{
+    background-color: var(--dark-color);
+    margin: 2rem;
+    padding: 5rem;
+    border-radius: 6px;
+    color: #be3144;
+    -webkit-box-shadow: 0px 5px 11px 0px rgba(0, 0, 0, 0.5);
+            box-shadow: 0px 5px 11px 0px rgba(0, 0, 0, 0.5);
+            
+}
+
+.search-forms {
+    margin: auto;
+    display: inline-flex;
+}
+
+#hero-1-form {
+    margin-right: 50px;
+    display: flex;
+}
+
+#hero-2-form {
+    margin-left: 50px;
+    display: flex;
+}
+
+.hero-comparison {
+    margin-inline-end: 20px;
+    padding: 20px;
+justify-content: center;
+/* align-items: first-baseline; */
+display: inline-flex;
+}
