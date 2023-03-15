@@ -328,10 +328,10 @@ button:active {
     padding: 0 3rem;
     text-align: right;
 }
-.connections{
+.relationships {
     display: none;
 }
-.connections li span:first-child{
+.relationships li span:first-child{
     display: block;
     text-transform: uppercase;
     font-weight: 400;
@@ -343,7 +343,7 @@ button:active {
     letter-spacing: 2px;
     margin-top: 3.6rem;
 }
-.connections li span:first-child::before{
+.relationships li span:first-child::before{
     content: "";
     position: absolute;
     top: 50%;
@@ -355,7 +355,7 @@ button:active {
     width: 30px;
     background-color: rgb(253, 146, 146);
 }
-.connections li span:last-child{
+.relationships li span:last-child{
     letter-spacing: 1px;
     line-height: 1.9;
 }
