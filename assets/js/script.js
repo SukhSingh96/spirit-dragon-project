@@ -171,7 +171,7 @@ const showSuperheroDetails = (data) => {
     </li>
     `;
 
-    document.querySelector('.connections').innerHTML = `
+    document.querySelector('.relationships').innerHTML = `
     <li>
     <span>relatives</span>
     <span>${data[0].connections['relatives']}</span>
