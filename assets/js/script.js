@@ -1,9 +1,18 @@
+const homeLink = document.querySelector(".home-header");
 const allTabsBody = document.querySelectorAll('.tab-body-single');
 const allTabsHead = document.querySelectorAll('.tab-head-single');
 const searchForm = document.querySelector('.app-header-search');
 let searchList = document.getElementById('search-list');
-
 let activeTab = 1, allData;
+
+// Gets the home text element
+var homeText = document.querySelector(".home-text");
+
+homeLink.style.display = "none";
+homeLink.addEventListener("click", () => {
+    location.replace(location.href);
+    homeLink.style.display = "none";
+});
 
 const init = () => {
     showActiveTabBody();
@@ -41,17 +50,16 @@ const getInputValue = (event) => {
 // search form submission
 searchForm.addEventListener('submit', getInputValue);
 
-// api key => 727054372039115
-const fetchAllSuperHero = async(searchText) => {
+const fetchAllSuperHero = async (searchText) => {
     let url = `https://www.superheroapi.com/api.php/2333600500149305/search/${searchText}`;
-    try{
+    try {
         const response = await fetch(url);
         allData = await response.json();
-        if(allData.response === 'success'){
+        if (allData.response === 'success') {
             // console.log(allData);
             showSearchList(allData.results);
         }
-    } catch(error){
+    } catch (error) {
         console.log(error);
     }
 }
@@ -70,7 +78,7 @@ const showSearchList = (data) => {
 }
 
 searchForm.search.addEventListener('keyup', () => {
-    if(searchForm.search.value.length > 1){
+    if (searchForm.search.value.length > 1) {
         fetchAllSuperHero(searchForm.search.value);
     } else {
         searchList.innerHTML = "";
@@ -84,83 +92,42 @@ searchList.addEventListener('click', (event) => {
     })
     showSuperheroDetails(singleData);
     searchList.innerHTML = "";
+    homeText.style.display = "none";
+    homeLink.style.display = "inline";
+    document.querySelector('.app-body').style.display = "";
 });
 
 const showSuperheroDetails = (data) => {
     console.log(data);
-    document.querySelector('.app-body-content-thumbnail').innerHTML = `
+    document.querySelector('.app-body-content-img').innerHTML = `
         <img src = "${data[0].image.url}">
     `;
 
     document.querySelector('.name').textContent = data[0].name;
-    document.querySelector('.powerstats').innerHTML = `
-    <li>
-        <div>
-            <i class = "fa-solid fa-shield-halved"></i>
-            <span>intelligence</span>
-        </div>
-        <span>${data[0].powerstats.intelligence}</span>
-    </li>
-    <li>
-        <div>
-            <i class = "fa-solid fa-shield-halved"></i>
-            <span>strength</span>
-        </div>
-        <span>${data[0].powerstats.strength}</span>
-    </li>
-    <li>
-        <div>
-            <i class = "fa-solid fa-shield-halved"></i>
-            <span>speed</span>
-        </div>
-        <span>${data[0].powerstats.speed}</span>
-    </li>
-    <li>
-        <div>
-            <i class = "fa-solid fa-shield-halved"></i>
-            <span>durability</span>
-        </div>
-        <span>${data[0].powerstats.durability}</span>
-    </li>
-    <li>
-        <div>
-            <i class = "fa-solid fa-shield-halved"></i>
-            <span>power</span>
-        </div>
-        <span>${data[0].powerstats.power}</span>
-    </li>
-    <li>
-        <div>
-            <i class = "fa-solid fa-shield-halved"></i>
-            <span>combat</span>
-        </div>
-        <span>${data[0].powerstats.combat}</span>
-    </li>
-    `;
 
     document.querySelector('.biography').innerHTML = `
     <li>
-        <span>full name</span>
+        <span>full name: </span>
         <span>${data[0].biography['full-name']}</span>
     </li>
     <li>
-        <span>alert-egos</span>
+        <span>alert-egos: </span>
         <span>${data[0].biography['alter-egos']}</span>
     </li>
     <li>
-        <span>aliases</span>
+        <span>aliases: </span>
         <span>${data[0].biography['aliases']}</span>
     </li>
     <li>
-        <span>place-of-birth</span>
+        <span>place-of-birth: </span>
         <span>${data[0].biography['place-of-birth']}</span>
     </li>
     <li>
-        <span>first-apperance</span>
+        <span>first-apperance: </span>
         <span>${data[0].biography['first-appearance']}</span>
     </li>
     <li>
-        <span>publisher</span>
+        <span>publisher: </span>
         <span>${data[0].biography['publisher']}</span>
     </li>
     `;
@@ -168,37 +135,37 @@ const showSuperheroDetails = (data) => {
     document.querySelector('.appearance').innerHTML = `
     <li>
         <span>
-            <i class = "fas fa-star"></i> gender
+        gender
         </span>
         <span>${data[0].appearance['gender']}</span>
     </li>
     <li>
         <span>
-            <i class = "fas fa-star"></i> race
+        race
         </span>
         <span>${data[0].appearance['race']}</span>
     </li>
     <li>
         <span>
-            <i class = "fas fa-star"></i> height
+        height
         </span>
         <span>${data[0].appearance['height'][0]}</span>
     </li>
     <li>
         <span>
-            <i class = "fas fa-star"></i> weight
+        weight
         </span>
         <span>${data[0].appearance['weight'][0]}</span>
     </li>
     <li>
         <span>
-            <i class = "fas fa-star"></i> eye-color
+        eye-color
         </span>
         <span>${data[0].appearance['eye-color']}</span>
     </li>
     <li>
         <span>
-            <i class = "fas fa-star"></i> hair-color
+        hair-color
         </span>
         <span>${data[0].appearance['hair-color']}</span>
     </li>
@@ -206,12 +173,27 @@ const showSuperheroDetails = (data) => {
 
     document.querySelector('.connections').innerHTML = `
     <li>
-        <span>group--affiliation</span>
-        <span>${data[0].connections['group-affiliation']}</span>
-    </li>
+    <span>relatives</span>
+    <span>${data[0].connections['relatives']}</span>
+   </li>
+   <li>
+    <span>group-affiliation</span>
+    <span>${data[0].connections['group-affiliation']}</span>
+   </li>
+`;
+
+    document.querySelector('.work').innerHTML = `
     <li>
-        <span>relatives</span>
-        <span>${data[0].connections['relatives']}</span>
-    </li>
+        <span>Morals: </span>
+        <span>${data[0].biography['alignment']}
+      </li>
+    <li>
+        <span>occupation: </span>
+        <span>${data[0].work['occupation']}</span>
+      </li>
+    <li>
+        <span>base of operation: </span>
+        <span>${data[0].work['base']}</span>
+      </li>
     `;
 }
