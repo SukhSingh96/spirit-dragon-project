@@ -12,6 +12,8 @@ This feature allows the user to determine which hero or villain could potentiall
 ![image](https://user-images.githubusercontent.com/121911679/225499366-eeceda6b-4422-42fa-94b0-f65b5c812fd3.png)
 ![image](https://user-images.githubusercontent.com/121911679/225499364-15bc8036-dd0f-4f7d-8be7-e9f2d286b382.png)
 ![image](https://user-images.githubusercontent.com/121911679/225499454-b61e8bf5-9cfe-4ecb-88ae-7cbe8aecc0f6.png)
+![image](https://user-images.githubusercontent.com/121911679/225768498-71226e15-9b1e-4412-a816-0cb20b50e9e5.png)
+
 
 # Technologies Used
 HTML
