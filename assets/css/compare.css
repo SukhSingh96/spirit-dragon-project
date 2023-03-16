@@ -1,4 +1,6 @@
-:root{
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+:root {
     --poppins-font: 'Poppins', sans-serif;
     --dark-color: #0a0a0a;
     --red-color: #f64445;
@@ -11,13 +13,14 @@
     padding: 0;
     margin: 0;
     -webkit-box-sizing: border-box;
-            box-sizing: border-box;
+    box-sizing: border-box;
 }
 
-html{
-    font-size: 10px;
+html {
+    font-size: 8px;
 }
-body{
+
+body {
     font-size: 1.7rem;
     min-height: 100vh;
     background: var(--light-color);
@@ -29,60 +32,184 @@ body{
     display: -ms-flexbox;
     display: flex;
     -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
     -webkit-box-pack: stretch;
-        -ms-flex-pack: stretch;
-            justify-content: stretch;
+    -ms-flex-pack: stretch;
+    justify-content: stretch;
 }
 
-.main-container{
+.main-container {
     max-width: 1280px;
     width: 100%;
     margin: 0 auto;
-    margin-left: 400px;
+    margin-left: 450px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
     -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
 }
 
-.app{
+.app {
     background-color: var(--dark-color);
     font-weight: 800;
     margin: 2rem;
     padding: 5rem;
-    border-radius: 6px;
+    border-radius: 40px;
     color: var(--light-color);
-    -webkit-box-shadow: 0px 5px 11px 0px rgba(0, 0, 0, 0.5);
-            box-shadow: 0px 5px 11px 0px rgba(0, 0, 0, 0.5);
-            
+    -webkit-box-shadow: 0px 11px 0px 0px rgba(0, 0.5, 1, 1.5);
+    box-shadow: 0px 11px 21px 0px rgba(0, 0.5, 1, 1.5);
+
+}
+
+.app-header-title {
+    color: red;
+    font-size: 26px;
+}
+
+.app-header-title span {
+    color: var(--light-color);
+}
+
+.compare-description {
+    font-size: 20PX;
+    justify-content: center;
+    text-align: center;
+    margin-top: 80px;
+}
+
+.home-header {
+    position: relative;
+    justify-content: end;
+    margin-left: 860px;
+    background-color: transparent;
+    font-family: var(--poppins-font);
+    border: none;
+    color: white;
+    font-size: 19px;
+}
+
+.home-header:hover {
+    cursor: pointer;
+    color: rgb(173, 45, 45);
 }
 
 .search-forms {
-    margin: auto;
-    display: inline-flex;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-left: 160px;
 }
 
-#hero-1-form {
-    margin-right: 50px;
+.hero-form {
+    border: 3px solid var(--grey-color);
+    border-radius: 6rem;
+    padding-top: 2px;
     display: flex;
+    align-items: center;
+    margin-right: 210px;
 }
 
-#hero-2-form {
-    margin-left: 50px;
+.hero-input {
+    margin-left: 10px;
+    padding: 7px;
+    font-size: 15px;
+    border-radius: 8px;
+    width: 200px;
+    margin-right: 10px;
+    border-color: var(--dark-color);
+    font-family: var(--poppins-font);
+    font-weight: 600;
+    border: none;
+    background-color: transparent;
+}
+
+.hero-input:focus {
+    border-color: black;
+    border: none;
+}
+
+.search-list {
+    position: absolute;
+    background-color: black;
+    z-index: 1;
+    width: 200px;
+    margin-left: 10px;
+    margin-top: 380px;
+    max-height: 400px;
+    overflow-y: auto;
+    border: none;
+}
+
+.search-list img{
+padding-bottom: 10px;
+margin-right: 10px;
+}
+
+/* Style the list items in the search list */
+.search-list li {
+    cursor: pointer;
+    display: -webkit-box;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    background-color: var(--dark-color);
+    padding-top: 5px;
+}
+
+.search-list li:hover {
+    background-color: var(--red-color);
+}
+
+.search-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.search-list::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.search-list::-webkit-scrollbar-thumb {
+    background-color: var(--red-color);
+    border-radius: 5px;
+}
+
+.refresh-button {
+    position: relative;
+    background-color: transparent;
+    border: none;
+    border-radius: 1px;
+    cursor: pointer;
+    font-size: 25px;
+    margin-left: 490px;
+}
+
+.hero-img {
+    margin-left: 55px;
+    justify-content: space-between;
+    padding-inline: 30px;
+
+}
+
+span .hero-name {
+    font-weight: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 .hero-comparison {
-    margin-inline-end: 20px;
+    margin-inline-end: 100px;
     padding: 20px;
-justify-content: center;
-/* align-items: first-baseline; */
-display: inline-flex;
+    justify-content: center;
+    /* align-items: first-baseline; */
+    display: inline-flex;
 }
