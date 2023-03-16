@@ -3,6 +3,7 @@ const allTabsBody = document.querySelectorAll('.tab-body-single');
 const allTabsHead = document.querySelectorAll('.tab-head-single');
 const searchForm = document.querySelector('.app-header-search');
 let searchList = document.getElementById('search-list');
+const mapContainer = document.querySelector('.map-container')
 let activeTab = 1, allData;
 
 // Gets the home text element
@@ -29,7 +30,7 @@ const showActiveTabBody = () => {
 const hideAllTabBody = () => allTabsBody.forEach(singleTabBody => singleTabBody.classList.remove('show-tab'));
 const hideAllTabHead = () => allTabsHead.forEach(singleTabHead => singleTabHead.classList.remove('active-tab'));
 
-// even listeners
+// event listeners
 window.addEventListener('DOMContentLoaded', () => init());
 // button event listeners
 allTabsHead.forEach(singleTabHead => {
@@ -56,7 +57,6 @@ const fetchAllSuperHero = async (searchText) => {
         const response = await fetch(url);
         allData = await response.json();
         if (allData.response === 'success') {
-            // console.log(allData);
             showSearchList(allData.results);
         }
     } catch (error) {
@@ -94,6 +94,7 @@ searchList.addEventListener('click', (event) => {
     searchList.innerHTML = "";
     homeText.style.display = "none";
     homeLink.style.display = "inline";
+    mapContainer.style.display = "none";
     document.querySelector('.app-body').style.display = "";
 });
 
@@ -196,4 +197,35 @@ const showSuperheroDetails = (data) => {
         <span>${data[0].work['base']}</span>
       </li>
     `;
+}
+
+mapboxgl.accessToken =
+  "pk.eyJ1IjoiZ29kZGFyZGNvbGUiLCJhIjoiY2xmNXB3MWg4MDVlZjNwcW1ncXF5b3dncCJ9.0Ft4_LAHrAwshgLHvm4r0Q"
+
+navigator.geolocation.getCurrentPosition(successLocation, errorLocation, {
+  enableHighAccuracy: true
+})
+
+function successLocation(position) {
+  setupMap([position.coords.longitude, position.coords.latitude])
+}
+
+function errorLocation() {
+  setupMap([-2.24, 53.48])
+}
+
+function setupMap(center) {
+    const map = new mapboxgl.Map({
+      container: 'map',
+      style: 'mapbox://styles/mapbox/streets-v11'
+    })
+
+  const nav = new mapboxgl.NavigationControl()
+  map.addControl(nav)
+
+  var directions = new MapboxDirections({
+    accessToken: mapboxgl.accessToken
+  })
+
+  map.addControl(directions);
 }
