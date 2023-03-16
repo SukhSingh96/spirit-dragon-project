@@ -39,6 +39,23 @@ body {
     justify-content: stretch;
 }
 
+body::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+  body::-webkit-scrollbar-track {
+    background-color: var(--dark-color);
+  }
+  
+  body::-webkit-scrollbar-thumb {
+    background-color: #f64445;
+    border-radius: 10px;
+  }
+  
+  body::-webkit-scrollbar-thumb:hover {
+    background-color: #be3144;
+  }
+
 .nav-links {
     justify-content: space-between;
     word-spacing: 20px;
