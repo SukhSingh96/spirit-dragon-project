@@ -9,6 +9,11 @@ const hero2Input = hero2Form.querySelector(".hero-input");
 const hero1List = hero1Form.querySelector(".search-list");
 const hero2List = hero2Form.querySelector(".search-list");
 const comparisonContainer = document.getElementById("hero-comparison");
+const refreshButton = document.querySelector(".refresh-button");
+
+refreshButton.addEventListener("click", function() {
+    window.location.reload();
+  });
 
 // Function to fetch heroes from API
 async function fetchHeroes(query) {
@@ -19,45 +24,83 @@ async function fetchHeroes(query) {
 
 function renderHeroesList(heroes, listContainer) {
     listContainer.innerHTML = "";
-    heroes.slice(0, 3).forEach(hero => {
-        const heroButton = document.createElement("button");
-        heroButton.classList.add("search-button");
+    const searchInput = document.createElement("input");
+    searchInput.setAttribute("type", "text");
+    searchInput.setAttribute("placeholder", "Search for a hero...");
+    searchInput.classList.add("search-input");
+    listContainer.appendChild(searchInput);
+  
+    const heroList = document.createElement("ul");
+    heroList.classList.add("hero-list");
+    listContainer.appendChild(heroList);
+  
+    heroes.slice(0, 6).forEach(hero => {
+      const heroItem = document.createElement("li");
+      heroItem.classList.add("hero-item");
+      heroItem.setAttribute("data-name", hero.name);
+  
+      const heroImg = document.createElement("img");
+      heroImg.src = hero.image.url;
+      heroImg.alt = hero.name;
+      heroImg.classList.add("hero-img-small");
+      heroImg.style.width = "50px";
+      heroItem.appendChild(heroImg);
+  
+      const heroName = document.createElement("span");
+      heroName.innerText = hero.name;
+      heroName.style.fontSize = "15px"
+      heroItem.appendChild(heroName);
+  
+      heroList.appendChild(heroItem);
+    });
+  
+    const heroItems = listContainer.querySelectorAll(".hero-item");
+  
+    searchInput.addEventListener("input", () => {
+      const searchTerm = searchInput.value.toLowerCase();
+      heroItems.forEach(item => {
+        const name = item.getAttribute("data-name").toLowerCase();
+        if (name.includes(searchTerm)) {
+          item.style.display = "block";
+        } else {
+          item.style.display = "none";
+        }
+      });
+    });
+  
+    heroItems.forEach(item => {
+      item.addEventListener("click", async () => {
+        const heroName = item.getAttribute("data-name");
+        const hero = heroes.find(h => h.name === heroName);
         const heroImg = document.createElement("img");
         heroImg.src = hero.image.url;
         heroImg.alt = hero.name;
-        heroImg.classList.add("hero-img-small");
-        heroImg.style.width = "50px";
-        heroButton.appendChild(heroImg);
-        const heroName = document.createElement("span");
-        heroName.innerText = hero.name;
-        heroButton.appendChild(heroName);
-        heroButton.addEventListener("click", async () => {
-            const heroImg = document.createElement("img");
-            heroImg.src = hero.image.url;
-            heroImg.alt = hero.name;
-            heroImg.style.width = "175px";
-            heroImg.classList.add("hero-img");
-            const heroStats = document.createElement("div");
-            heroStats.classList.add("hero-stats");
-            heroStats.innerHTML = `
-        <h2>${hero.name}</h2>
-        <p>Intelligence: ${hero.powerstats.intelligence}</p>
-        <p>Strength: ${hero.powerstats.strength}</p>
-        <p>Speed: ${hero.powerstats.speed}</p>
-        <p>Durability: ${hero.powerstats.durability}</p>
-        <p>Power: ${hero.powerstats.power}</p>
-        <p>Combat: ${hero.powerstats.combat}</p>
-      `;
-            const heroElement = document.createElement("div");
-            heroElement.classList.add("hero");
-            heroElement.appendChild(heroImg);
-            heroElement.appendChild(heroStats);
-            comparisonContainer.appendChild(heroElement);
-            listContainer.style.display = "none";
-        });
-        listContainer.appendChild(heroButton);
+        heroImg.classList.add("hero-img");
+        heroImg.style.width = "400px"
+        heroImg.style.marginLeft = "57px";
+        const heroStats = document.createElement("div");
+        heroStats.classList.add("hero-stats");
+        heroStats.innerHTML = `
+          <h1>${hero.name}</h1>
+          <p>Intelligence: ${hero.powerstats.intelligence}</p>
+          <p>Strength: ${hero.powerstats.strength}</p>
+          <p>Speed: ${hero.powerstats.speed}</p>
+          <p>Durability: ${hero.powerstats.durability}</p>
+          <p>Power: ${hero.powerstats.power}</p>
+          <p>Combat: ${hero.powerstats.combat}</p>
+        `;
+        const heroElement = document.createElement("div");
+        heroElement.classList.add("hero");
+        heroElement.appendChild(heroImg);
+        heroElement.appendChild(heroStats);
+        comparisonContainer.appendChild(heroElement);
+        listContainer.style.display = "none";
+        heroStats.style.paddingTop = "20px";
+        heroStats.style.marginLeft = "70px"
+        heroStats.style.textAlign = "center";
+      });
     });
-}
+  }
 
 hero1Input.addEventListener("keyup", async () => {
     const query = hero1Input.value.trim();
