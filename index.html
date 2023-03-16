@@ -7,28 +7,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <link rel="stylesheet" href="assets/css/style.css"> -->
     <title>Chartest</title>
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/
-    materialize.min.css">
-
     <link rel="stylesheet" href="assets/css/style.css">
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
-    <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
-
+    <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel="stylesheet" />
     <script
-        src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.js"></script>
-    <link rel="stylesheet"
-        href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.css"
-        type="text/css">
+        src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <title>CharTest</title>
 </head>
 
 <body>
     <div class="main-wrapper">
         <div class="app">
-            <!-- app header -->
             <div class="app-header">
                 <h2 class="app-header-title">Char<span>Test.</span></h2>
                 <div class="nav-links">
@@ -39,7 +31,7 @@
                 <form class="app-header-search">
                     <input type="text" class="form-control" placeholder="Search a character..." name="search">
                     <button type="submit" class="search-btn">
-                        <i class="fas fa-search"></i>
+                        <i class="fas fa-search" style="font-size: 20px;"></i>
                     </button>
                     <div class="search-list" id="search-list"></div>
                 </form>
@@ -169,15 +161,22 @@
                             </div>
                         </div>
                     </div>
+                    <div class="map-container">
+                        <h4>Wanna dive deeper into heroes and comics? Find a comic book store near you!</h4>
+                        <div class="mapbox">
+                            <div id='map'></div>
+                        </div>
+                    </div>
                 </div>
+
             </div>
         </div>
 
     </div>
-    <div class="mapbox">
-        <div id='map'></div>
-    </div>
+
+
     <script src="assets/js/script.js"></script>
 </body>
+
 
 </html>
