@@ -112,7 +112,7 @@ const showSuperheroDetails = (data) => {
         <span>${data[0].biography['full-name']}</span>
     </li>
     <li>
-        <span>alert-egos: </span>
+        <span>alter-egos: </span>
         <span>${data[0].biography['alter-egos']}</span>
     </li>
     <li>
