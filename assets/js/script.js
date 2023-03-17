@@ -124,7 +124,7 @@ const showSuperheroDetails = (data) => {
         <span>${data[0].biography['place-of-birth']}</span>
     </li>
     <li>
-        <span>first-apperance: </span>
+        <span>first-appearance: </span>
         <span>${data[0].biography['first-appearance']}</span>
     </li>
     <li>
