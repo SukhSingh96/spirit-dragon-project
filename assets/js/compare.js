@@ -168,7 +168,7 @@ hero2Form.addEventListener("submit", async e => {
     }
 });
 
-// Event Listener for comparison button
+// Logic Event Listener for comparison container
 comparisonContainer.addEventListener("click", e => {
     if (e.target.classList.contains("hero-img")) {
         const heroElements = comparisonContainer.querySelectorAll(".hero");
