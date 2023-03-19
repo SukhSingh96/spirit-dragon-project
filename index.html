@@ -1,48 +1,182 @@
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <!-- Meta data -->
+    <!--  -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- css style link -->
+    <!-- <link rel="stylesheet" href="assets/css/style.css"> -->
+    <title>Chartest</title>
     <link rel="stylesheet" href="assets/css/style.css">
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel="stylesheet" />
+    <script
+        src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <title>CharTest</title>
 </head>
 
 <body>
-    <div class="container">
-        <div class="container-2">
-            <div class="container-header">
-                <h4>Char<span>Test</span></h4>
-                <ul>
-                    <li>Home</li>
-                    <li>Characters</li>
-                    <li>Compare</li>
-                </ul>
-                <form class="container-header-search">
-                    <input type="text" class="form" placeholder="Hero Selector" name="search">
+    <div class="main-wrapper">
+        <div class="app">
+            <div class="app-header">
+                <h2 class="app-header-title">Char<span>Test.</span></h2>
+                <div class="nav-links">
+                    <button class="home-header btn-flat waves-effect waves-light">Home</button>
+                    <a href="./compare.html"><button
+                            class="compare-header btn-flat waves-effect waves-light">Compare</button></a>
+                </div>
+                <form class="app-header-search">
+                    <input type="text" class="form-control" placeholder="Search a character..." name="search">
                     <button type="submit" class="search-btn">
-                        <i class="fas fa-search"></i>
+                        <i class="fas fa-search" style="font-size: 20px;"></i>
                     </button>
-                    <div class="search-list" id="search-list">
-
-                    </div>
+                    <div class="search-list" id="search-list"></div>
                 </form>
             </div>
-            <h3 class="about" id="about">About CharTest</h3>
-            <p>This is where we will expain the information about what this app does and how it will help the common superhero fan</p>
+            <div class="container">
+                <div class="container-2">
+                    <div class="container-header">
+                    </div>
+                    <div class="data-container">
+                        <div class="home-text">
+                            <h3 class="about" id="about">About <span id="char">Char</span><span>Test</span></h3>
+                            <p> CharTest is a superhero character comparison website. A user can compare their favorite
+                                heroes
+                                and villians as well as pit them against each other to see how they rank across multiple
+                                different IPs like Marvel, DC, Star Wars, and even the Wizarding World! A user can search individually or
+                                compare
+                                two heroes or villians against each other.</p>
+                        </div>
+                    </div>
+                    <div class="app-body" style="display:none">
+                        <div class="app-body-content">
+                            <div class="app-body-content-img">
+                                <img>
+                            </div>
+                            <div class="app-body-content-list">
+                                <div class="name"></div>
+                                <div class="app-body-tabs-head">
+                                    <button type="button" class="tab-head-single" data-id="1">
+                                        <span>biography</span>
+                                    </button>
+                                    <button type="button" class="tab-head-single" data-id="2">
+                                        <span>appearance</span>
+                                    </button>
+                                    <button type="button" class="tab-head-single" data-id="3">
+                                        <span>relationships</span>
+                                    </button>
+                                    <button type="button" class="tab-head-single" data-id="4">
+                                        <span>Worklife</span>
+                                    </button>
+                                </div>
+                                <div class="app-body-tabs-body">
+                                    <ul class="tab-body-single biography">
+                                        <li>
+                                            <span>full name</span>
+                                            <span></span>
+                                        </li>
+                                        <li>
+                                            <span>alter-egos</span>
+                                            <span></span>
+                                        </li>
+                                        <li>
+                                            <span>aliases</span>
+                                            <span></span>
+                                        </li>
+                                        <li>
+                                            <span>place-of-birth</span>
+                                            <span></span>
+                                        </li>
+                                        <li>
+                                            <span>first-appearance</span>
+                                            <span></span>
+                                        </li>
+                                        <li>
+                                            <span>publisher</span>
+                                            <span></span>
+                                        </li>
+                                    </ul>
+                                    <ul class="tab-body-single appearance">
+                                        <li>
+                                            <span>
+                                                gender
+                                            </span>
+                                            <span></span>
+                                        </li>
+                                        <li>
+                                            <span>
+                                                race
+                                            </span>
+                                            <span></span>
+                                        </li>
+                                        <li>
+                                            <span>
+                                                height
+                                            </span>
+                                            <span></span>
+                                        </li>
+                                        <li>
+                                            <span>
+                                                weight
+                                            </span>
+                                            <span></span>
+                                        </li>
+                                        <li>
+                                            <span>
+                                                eye-color
+                                            </span>
+                                            <span></span>
+                                        </li>
+                                        <li>
+                                            <span>
+                                                hair-color
+                                            </span>
+                                            <span></span>
+                                        </li>
+                                    </ul>
+                                    <ul class="tab-body-single relationships">
+                                        <li>
+                                            <span>group-affiliation</span>
+                                            <span></span>
+                                        </li>
+                                        <li>
+                                            <span>relatives</span>
+                                            <span></span>
+                                        </li>
+                                    </ul>
+                                    <ul class="tab-body-single work">
+                                        <li>
+                                            <span>occupation</span>
+                                            <span></span>
+                                        </li>
+                                        <li>
+                                            <span>base of operation</span>
+                                            <span></span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="map-container">
+                        <h4>Wanna dive deeper into heroes and comics? Find a comic book store near you!</h4>
+                        <div class="mapbox">
+                            <div id='map'></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
+
     </div>
-    <!-- javascript script link -->
+
+
     <script src="assets/js/script.js"></script>
 </body>
 
-</html>
 
-<!-- This is a comment -->
+</html>
