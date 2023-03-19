@@ -6,8 +6,7 @@ let searchList = document.getElementById('search-list');
 const mapContainer = document.querySelector('.map-container')
 let activeTab = 1, allData;
 
-// Gets the home text element
-var homeText = document.querySelector(".home-text");
+const homeText = document.querySelector(".home-text");
 
 homeLink.style.display = "none";
 homeLink.addEventListener("click", () => {
@@ -30,7 +29,6 @@ const showActiveTabBody = () => {
 const hideAllTabBody = () => allTabsBody.forEach(singleTabBody => singleTabBody.classList.remove('show-tab'));
 const hideAllTabHead = () => allTabsHead.forEach(singleTabHead => singleTabHead.classList.remove('active-tab'));
 
-// event listeners
 window.addEventListener('DOMContentLoaded', () => init());
 // button event listeners
 allTabsHead.forEach(singleTabHead => {
